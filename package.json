@@ -1,0 +1,42 @@
+{
+  "name": "resxtojson",
+  "description": "Convert resx to JSON.",
+  "version": "0.1.1",
+  "homepage": "https://github.com/ericontilt/resxtojson",
+  "author": {
+    "name": "Eric Beragg",
+    "email": "eric.beragg@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ericontilt/resxtojson.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ericontilt/resxtojson/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ericontilt/resxtojson/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "resxtojson": "src/index.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "glob": "^7.0.5",
+    "xmldoc": "^0.3.2"
+  },
+  "keywords": [
+    "resx",
+    "json"
+  ],
+  "devDependencies": {
+    "eslint": "^3.2.2"
+  }
+}
