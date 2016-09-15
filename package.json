@@ -1,7 +1,7 @@
 {
   "name": "resxtojson",
   "description": "Convert resx to JSON.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/ericontilt/resxtojson",
   "author": {
     "name": "Eric Beragg",
@@ -25,7 +25,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "resxtojson": "src/index.js"
+    "resxtojson": "src/resxtojson.js"
   },
   "dependencies": {
     "commander": "^2.9.0",
