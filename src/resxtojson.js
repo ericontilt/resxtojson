@@ -27,8 +27,9 @@ var processResx = function processResx(resxPath, outputPath) {
       fs.accessSync(outputPath, fs.F_OK);
     } catch (e) {
       fs.mkdirSync(outputPath);
-      console.log('Output directory created "%s"', outputPath);
     }
+
+    console.log('Output directory: "%s"', outputPath);
 
     var regExpWithCulturePrefix = /\b\.([a-z]{2}|[a-z]{2}-[A-Z]{2})\.resx/;
     var mainResxPath = files.find(function(f) {
@@ -39,7 +40,8 @@ var processResx = function processResx(resxPath, outputPath) {
 
     function doTransformation(srcPath, baseTranslation) {
       var fileContent = fs.readFileSync(path.normalize(srcPath));
-      var translation = Object.assign({}, baseTranslation || {}, transformer(fileContent));
+      var matchPattern = program.regxMatch ? new RegExp(program.regxMatch) : undefined;
+      var translation = Object.assign({}, baseTranslation || {}, transformer(fileContent, matchPattern));
       var srcFileName = path.basename(srcPath);
       var dstFileName = path.join(outputPath, srcFileName.replace('.resx', '.json'));
       fs.writeFileSync(dstFileName, JSON.stringify(translation));
@@ -59,6 +61,7 @@ var processResx = function processResx(resxPath, outputPath) {
 program
   .version(pkg.version)
   .arguments('<resx_path> <output_path>')
+  .option('-m, --regx-match <value>', 'Regular expression for key match pattern.')
   .action(processResx);
 
 program.parse(process.argv);
