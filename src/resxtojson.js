@@ -13,6 +13,7 @@ var program = require('commander');
 var glob = require('glob');
 var fs = require('fs');
 var path = require('path');
+var mkdirp = require('mkdirp');
 var transformer = require('./transformer');
 var pkg = require('../package.json');
 
@@ -26,7 +27,11 @@ var processResx = function processResx(resxPath, outputPath) {
     try {
       fs.accessSync(outputPath, fs.F_OK);
     } catch (e) {
-      fs.mkdirSync(outputPath);
+      mkdirp.sync(outputPath, function(err) {
+        if (err) {
+          throw new Error(err);
+        }
+      });
     }
 
     console.log('Output directory: "%s"', outputPath);

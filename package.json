@@ -1,7 +1,7 @@
 {
   "name": "resxtojson",
   "description": "Convert resx to JSON.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/ericontilt/resxtojson",
   "author": {
     "name": "Eric Beragg",
@@ -30,6 +30,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "glob": "^7.0.5",
+    "mkdirp": "^0.5.1",
     "xmldoc": "^0.3.2"
   },
   "keywords": [
